@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@model List<WebApplication1.Db_context.EmpDtl>
+
+
+
+<table>
+    <tr>
+        <th> PrdctNo</th>
+        <th> PrdctName</th>
+        <th>Email</th>
+        <th>MbNo</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.MbNo</td>
+
+            <td><a href="@Url.Action("Delete", "Home", new {Id=item.EmpId})" class="btn btn-info">Delete</a></td>
+        </tr>
+    }
+
+</table>
